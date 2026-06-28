@@ -46,6 +46,7 @@ async def seed_data():
 
         # 3. Create a Client
         client = Client(
+            id=uuid.UUID("12345678-1234-5678-1234-567812345678"),
             firm_id=firm.id,
             name="John Smith",
             email="john@example.com",

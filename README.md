@@ -63,19 +63,19 @@ The project includes a seeding script that wipes the database clean and injects 
 python init_db.py
 python -m app.db.seed
 ```
-*(Make sure to copy the newly generated Client UUID from the terminal output to test the summarization endpoints!)*
+*(A deterministic Client UUID is seeded so you can easily test the summarization endpoints. Use this Client ID for testing: `12345678-1234-5678-1234-567812345678`)*
 
 ### 6. Run the Application
 Start the FastAPI server:
 ```bash
-uvicorn app.main:app --reload --port 8001
+uvicorn app.main:app --reload --port 8000
 ```
 
 ---
 
 ## 🧪 Testing the API
 
-The API documentation is interactive and available at: **http://127.0.0.1:8001/docs**
+The API documentation is interactive and available at: **http://127.0.0.1:8000/docs**
 
 ### Authentication & Roles
 The database seed script provides three default users for testing different authorization levels:
@@ -89,7 +89,7 @@ The database seed script provides three default users for testing different auth
 ### Testing Workflow
 1. Go to `POST /auth/login` to obtain an access token.
 2. Click the **Authorize** button at the top of the Swagger UI and paste your token.
-3. Test `GET /summaries/{client_id}` using the seeded Client ID.
+3. Test `GET /summaries/{client_id}` using the seeded Client ID: `12345678-1234-5678-1234-567812345678`.
 4. Try out the `/reports` endpoints with the different user roles to verify RBAC enforcement!
 
 ---
